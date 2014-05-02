@@ -1,0 +1,24 @@
+  I'm on the line! -> www.coffeecodecou.ch
+
+  ╔══╣ COUNTDOWNS ╠════════════════════════════╗
+  ║ • Summer break: 049 days, 22 hours, 04 min ║
+  ║ • Birthday: {{birthday}}                   ║
+  ╚════════════════════════════════════════════╝
+
+  ╔══╣ TWITTER ╠══════════════════════╗
+  ║ • Username: @coffeecodecouch      ║
+  ║ • Last follower: @example12345678 ║
+  ║ • Followers today:                ║
+  ╚═══════════════════════════════════╝
+
+  ╔══╣ EMAIL ╠══════════════════════╗
+  ║ • [my username]@countermail.com ║
+  ╚═════════════════════════════════╝
+
+  ╔══╣ GITHUB ╠═══════════════════════════╗
+  ║ • Profile: github.com/coffeecodecouch ║
+  ║ • Commits today: {{commits}}          ║
+  ║ • Current streak: {{streak}}          ║
+  ╚═══════════════════════════════════════╝
+
+  The code updating this bio: git.io/example
