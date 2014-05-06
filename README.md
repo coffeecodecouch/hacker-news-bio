@@ -1,4 +1,4 @@
-This python script updates coffeecodecouch's HN bio (about) every 30 seconds.
+This python script updates coffeecodecouch's HN bio (about) every 60 seconds.
 
 Requires a config.txt file like this:
 
