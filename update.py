@@ -1,16 +1,33 @@
-# command -> python update.py -u <user cookie>
-
-import argparse
+from pymongo import MongoClient
+import tweetpony
+import github
+import json
 import requests
 from bs4 import BeautifulSoup
-from pprint import pprint
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-u', required=True)
-cookie = {'user': parser.parse_args().u}
+conf = dict((line.strip().split(' = ') for line in file('config.txt')))
+db = MongoClient('localhost', 27017).hackernewsbio
+
+def parse_twitter(temp):
+    twitter = tweetpony.API(
+        conf['tw_api_key'],
+        conf['tw_api_secret'],
+        conf['tw_acc_token'],
+        conf['tw_tok_secret']
+    )
+    followers = json.loads(twitter.followers().json)['users']
+    name = str(followers[0]['screen_name'].ljust(15))
+    return temp.replace('{{tw_follower}}', name)
+
+def parse_github(temp):
+    gh = github.GitHub(username=conf['gh_user'], password=conf['gh_pass'])
+
+    followers = str(gh.users('coffeecodecouch').get()['followers']).ljust(24)
+    return temp.replace('{{gh_followers}}', followers)
 
 def update_bio(about):
     url = 'https://news.ycombinator.com/user?id=coffeecodecouch'
+    cookie = {'user': conf['cookie']}
     r = requests.get(url, cookies=cookie)
     dom = BeautifulSoup(r.text)
 
@@ -32,5 +49,6 @@ def update_bio(about):
     print('Success: ' + str(r.ok))
 
 template = open('bio.txt', 'r').read()
+template = parse_twitter(template)
+template = parse_github(template)
 update_bio(template)
-pprint(template)

@@ -1,14 +1,8 @@
   I'm on the line! -> www.coffeecodecou.ch
 
-  ╔══╣ COUNTDOWNS ╠════════════════════════════╗
-  ║ • Summer break: 049 days, 22 hours, 04 min ║
-  ║ • Birthday: {{birthday}}                   ║
-  ╚════════════════════════════════════════════╝
-
   ╔══╣ TWITTER ╠══════════════════════╗
   ║ • Username: @coffeecodecouch      ║
-  ║ • Last follower: @example12345678 ║
-  ║ • Followers today:                ║
+  ║ • Last follower: @{{tw_follower}} ║
   ╚═══════════════════════════════════╝
 
   ╔══╣ EMAIL ╠══════════════════════╗
@@ -17,8 +11,8 @@
 
   ╔══╣ GITHUB ╠═══════════════════════════╗
   ║ • Profile: github.com/coffeecodecouch ║
-  ║ • Commits today: {{commits}}          ║
-  ║ • Current streak: {{streak}}          ║
+  ║ • Followers: {{gh_followers}} ║
   ╚═══════════════════════════════════════╝
 
-  The code updating this bio: git.io/example
+  This bio updates every 30 seconds.
+  See the code on GitHub: git.io/2hw5oA
