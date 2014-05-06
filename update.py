@@ -8,10 +8,6 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-fn = os.path.join(os.path.dirname(__file__), 'config.txt')
-conf = dict((line.strip().split(' = ') for line in file(fn)))
-db = MongoClient('localhost', 27017).hackernewsbio
-
 def parse_twitter(temp):
     twitter = tweetpony.API(
         conf['tw_api_key'],
@@ -52,7 +48,14 @@ def update_bio(about):
 
     print('Success: ' + str(r.ok))
 
-template = open('bio.txt', 'r').read()
+db = MongoClient('localhost', 27017).hackernewsbio
+
+fn1 = os.path.join(os.path.dirname(__file__), 'config.txt')
+conf = dict((line.strip().split(' = ') for line in file(fn1)))
+
+fn2 = os.path.join(os.path.dirname(__file__), 'bio.txt')
+template = open(fn2, 'r').read()
+
 template = parse_twitter(template)
 template = parse_github(template)
 update_bio(template)
