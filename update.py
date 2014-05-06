@@ -1,3 +1,4 @@
+import os
 from pymongo import MongoClient
 import tweetpony
 import github
@@ -5,7 +6,8 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-conf = dict((line.strip().split(' = ') for line in file('config.txt')))
+fn = os.path.join(os.path.dirname(__file__), 'config.txt')
+conf = dict((line.strip().split(' = ') for line in file(fn)))
 db = MongoClient('localhost', 27017).hackernewsbio
 
 def parse_twitter(temp):
