@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import os
 from pymongo import MongoClient
 import tweetpony
